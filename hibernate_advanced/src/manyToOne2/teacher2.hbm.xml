@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToOne2">
+	<class name="Teacher2" table="teacher2">
+		<id name="tid" column="TID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="tname" column="TNAME"></property>
+		<!-- set标签代表集合，set标签的name指的是类的成员变量，table指的成员变量的类型 -->
+		<set name="studentSet" table="student2">
+			<key>
+				<!-- 这里column的name属性是：student表中的外键列名 -->
+				<column name="tid"></column>
+			</key>
+			<one-to-many class="Student2"/>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToOne2">
+	<class name="Student2" table="student2">
+		<id name="sid" column="SID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="sname" column="SNAME"></property>
+		<!-- 属性name是Student2类中的成员变量名，属性Class是成员变量teacher2的类型 -->
+		<many-to-one name="teacher2" class="Teacher2">
+			<!-- 关联的列名 -->
+			<column name="TID"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>
