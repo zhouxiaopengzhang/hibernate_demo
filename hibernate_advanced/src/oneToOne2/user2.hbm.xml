@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToOne2">
+	<class name="User2" table="user2">
+		<id name="userId" column="uid">
+			<generator class="native"></generator>
+		</id>
+		<property name="userName" column="uname"></property>
+		<!-- 在user.hbm.xml基础上添加的内容 -->
+		<one-to-one name="ext"></one-to-one>
+	</class>
+</hibernate-mapping>

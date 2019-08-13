@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToOne2">
+	<class name="UserExt2" table="userExt2">
+		<id name="userId" column="UID">
+		<!-- 第一步:将id生成器改成外键的方式 -->
+			<generator class="foreign">
+				<!-- 第二步：指向UserExt类中的User类型的成员变量user -->
+				<param name="property">user</param>
+			</generator>
+		</id>
+		<property name="idCardNum" column="IDCARDNUM"></property>
+		<property name="sex" column="SEX"></property>
+		<!-- 第三步：配置一对一的关系 -->
+		<one-to-one name="user" constrained="true"></one-to-one>
+	</class>
+</hibernate-mapping>

@@ -25,6 +25,11 @@
 	<!--双向多对一的实体类对象映射文件 -->
 	<mapping resource="manyToOne2/teacher2.hbm.xml"/>
 	<mapping resource="manyToOne2/student2.hbm.xml"/>
-	
+	<!--单向一对一的实体类对象映射文件 -->
+	<mapping resource="oneToOne/User.hbm.xml"/>
+	<mapping resource="oneToOne/UserExt.hbm.xml"/>
+	<!--双向一对一的实体类对象映射文件 -->
+	<mapping resource="oneToOne2/User2.hbm.xml"/>
+	<mapping resource="oneToOne2/UserExt2.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>
