@@ -1,7 +1,7 @@
 package oneToOne;
 
 public class UserExt {
-	//即是本表的主键也是user表的外键
+	//即是本表(从表)的主键也是user表的外键
 	private Integer userId;
 	private String idCardNum;
 	private Integer sex;

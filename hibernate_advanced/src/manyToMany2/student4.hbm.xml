@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToMany2">
+	<class name="Student4" table="student4">
+		<id name="id" column="ID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<!-- 关键的地方就在这里了。一定要搞清楚两个column分别指的是什么意思 脑袋中要有哪个数据库关系图-->
+		<!--要查询到所有的course，就需要通过连接表，所以申明连接表的名称-->
+		<set name="courses" table="student4_course4">
+			  <!-- 本实体类在连接表中的外键名称，过程我们上面分析的很清楚了，为什么需
+			  要这个呢？让hibernate知道连接表中有一个外键名为s_id的指向本实体类 -->
+			<key column="SID"></key>
+			 <!-- 多对多映射关系，映射类和其映射类在连接表中的外键名称 这个的意思跟上面的一样，也是声
+			 明让hibernate知道，这样一来，hibernate就知道如何查询了-->
+			<many-to-many class="Course4" column="CID"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

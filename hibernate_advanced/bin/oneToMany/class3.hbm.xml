@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToMany">
+	<class name="Stu_Class3" table="class3">
+		<id name="id" column="ID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<!-- 单向一对多：Student3与Stu_class3之间的关系由Stu_class3维护 -->
+		<set name="student3s">
+			<!-- key标签的column的值会在数据库的student3表中创建外键 -->
+			<key column="cid"></key>
+			<one-to-many class="Student3"/>
+		</set>
+	</class>
+</hibernate-mapping>

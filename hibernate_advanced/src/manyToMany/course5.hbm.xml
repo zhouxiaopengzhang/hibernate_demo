@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToMany">
+	<class name="Course5" table="course5">
+		<id name="id" column="ID">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<!-- set中的table是中间表（也称关系表） -->
+		<set name="students" table="student5_course5">
+			<!-- 关系表中指向本类的外键列 -->
+			<key column="C_ID"></key>
+			<!-- 此时需要配置关系表和学生表中外键对应关系-->
+			<many-to-many class="Student5" column="S_ID"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

@@ -8,8 +8,12 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="tname" column="TNAME"></property>
-		<!-- set标签代表集合，set标签的name指的是类的成员变量，table指的成员变量的类型 -->
-		<set name="studentSet" table="student2">
+		 <!--关键在这里，
+            name:set集合属性的名称
+            key/column：这个是外键名，这个外键名不一定要和本类的主键字段名相同，这点要搞清楚，
+            one to many/class：一对多，所映射的类名(全限定类名，直接写类名也可以，hibernate会帮我们自动写好)
+        -->
+		<set name="studentSet">
 			<key>
 				<!-- 这里column的name属性是：student表中的外键列名 -->
 				<column name="tid"></column>

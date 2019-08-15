@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToMany2">
+	<class name="Course4" table="course4">
+		<id name="id" column="ID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<set name="students" table="student4_course4">
+			<key column="CID"></key>
+			<many-to-many class="Student4" column="SID"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

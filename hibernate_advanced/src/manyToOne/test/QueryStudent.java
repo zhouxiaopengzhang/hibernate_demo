@@ -9,7 +9,7 @@ import manyToOne.Student;
 
 public class QueryStudent {
 	@Test
-	public void save(){
+	public void seletQuery(){
 		Configuration config=new Configuration();
 		config.configure();
 		SessionFactory factory=config.buildSessionFactory();

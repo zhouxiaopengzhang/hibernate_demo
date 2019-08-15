@@ -8,7 +8,10 @@
 			<generator class="native"></generator>
 		</id>
 		<property name="sname" column="SNAME"></property>
-		<!-- 属性name是Student2类中的成员变量名，属性Class是成员变量teacher2的类型 -->
+		<!-- 重点在这里 
+            name：User类也就是本类中存放一方(Classes)对象的引用名称。
+            column：数据库表中的外键名称。注意，是被外键约束的字段的名称，写这些配置文件，要时刻记得那两张数据库表的关系。
+         -->
 		<many-to-one name="teacher2" class="Teacher2">
 			<!-- 关联的列名 -->
 			<column name="TID"></column>
