@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToOne3">
+	<class name="UserExt3" table="userExt3">
+		<id name="Id" column="ID">
+			<generator class="native"/>
+		</id>
+		<property name="idCardNum" column="IDCARDNUM"></property>
+		<property name="sex" column="SEX"></property>
+		<!--跟多对一一样，只是增加了一个unique属性。这样就指定了这端为一了。-->
+		<many-to-one name="user" unique="true">
+			<column name="UID"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

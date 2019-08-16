@@ -36,7 +36,7 @@ public class UserExt2 {
 	}
 	@Override
 	public String toString() {
-		return "UserExt2 [userId=" + userId + ", idCardNum=" + idCardNum + ", sex=" + sex + ", user=" + user + "]";
+		return "UserExt2 [userId=" + userId + ", idCardNum=" + idCardNum + ", sex=" + sex + "]";
 	}
 	
 	

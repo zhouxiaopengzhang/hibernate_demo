@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToOne3">
+	<class name="User3" table="user3">
+		<id name="id" column="ID">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<!-- 由于是单向多对一的一个特例，因此对象之间的关系由多端维护 -->
+	</class>
+</hibernate-mapping>

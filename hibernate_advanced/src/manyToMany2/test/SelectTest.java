@@ -1,15 +1,11 @@
 package manyToMany2.test;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Test;
-
 import manyToMany2.Course4;
 import manyToMany2.Student4;
 

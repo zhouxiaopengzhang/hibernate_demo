@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="oneToOne4">
+	<class name="User4" table="user4">
+		<id name="id" column="ID">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<!-- 由于是双向多对一的一个特例，因此对象之间的关系两端都需要维护 -->
+		<!-- 要注意property-ref这个属性，很重要，关键的地方就在这里。
+        property-ref：指定关联类的属性名，这个属性将会和本类的主键相对应。如果没有指定，
+        会使用对方关联类的主键来跟本类的主键比较，这里要注意不是关联表中的外键字段名。如果不指定这个属性，那么
+        一对一默认会使用主键去做对比。相当于原本我们
+        是可以通过本类的主键去和关联类的外键比较，然后来找到对应记录的，但是这里一对一中没有
+        column属性，所以该方法行不通，因此就想出了这种办法，不跟外键比，也不能跟主键比(因为不是主键关系)，那么
+        就跟关联表中的一个属性比，也就是我们这个person中的idCard属性，为什么找得到呢，因为从person能找到idcard，那么
+        person中的idCard中就会有对应的值，我们跟该值比，也就能找到对应的person了。
+        class：person所在的类，这个也可以不写，hibernate会自动帮我们找到
+         -->
+        <one-to-one name="ext" property-ref="user" class="UserExt4"></one-to-one>
+	</class>
+</hibernate-mapping>

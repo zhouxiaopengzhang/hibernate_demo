@@ -1,4 +1,4 @@
-package oneToOne.test;
+package oneToOne2.test;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,9 +6,9 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.junit.Before;
 import org.junit.Test;
-import oneToOne.UserExt;
-public class SelectTest {
-	/*单向查询*/
+import oneToOne2.User2;
+
+public class SelectUserExt2FromUser2Test {
 	Configuration config=null;
 	SessionFactory factory=null;
 	Session session=null;
@@ -23,12 +23,11 @@ public class SelectTest {
 	}
 	@Test
 	public void select2Table(){
-		/*这是单向查询：即从ext对象中读取User表中的相关信息
-		 * 如果还可以在User类的对象中读取UserExt表中的内容，那么就代表双向查询
+		/*双向查询：即可以从ext对象中读取User表中的相关信息；
+		 * 也可以在User类的对象中读取UserExt表中的内容
 		 * */
-		UserExt ext=session.get(UserExt.class, 1);
-		System.out.println(ext.getUser());
+		User2 user=session.get(User2.class, 1);
+		System.out.println(user.getExt());
 		transaction.commit();
 	}
 }
-

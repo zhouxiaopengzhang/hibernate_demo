@@ -13,6 +13,9 @@
 		</id>
 		<property name="idCardNum" column="IDCARDNUM"></property>
 		<property name="sex" column="SEX"></property>
+		 <!-- 这里只需要写这些就足够了，因为one-to-one默认使用的就是用主键跟关联类的主键进行比较，本来就是主键关
+		 系，通过主键跟主键比较，就能达到目的，所以这个中没有column这个属性，
+　　　　　但是可以配置一些别的属性，不需要写column， -->
 		<!-- 第三步：配置一对一的关系 -->
 		<one-to-one name="user" constrained="true"></one-to-one>
 	</class>

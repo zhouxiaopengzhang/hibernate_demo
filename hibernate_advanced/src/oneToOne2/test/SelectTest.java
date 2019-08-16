@@ -1,5 +1,8 @@
 package oneToOne2.test;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -24,16 +27,20 @@ public class SelectTest {
 		session=factory.openSession();
 		transaction=session.beginTransaction();
 	}
+	/*多表查询*/
 	@Test
 	public void selectTest(){
 		/*这是双向查询：即从ext对象中读取User表中的相关信息
 		 * 如果还可以在User类的对象中读取UserExt表中的内容，那么就代表双向查询
-		 * */
-		UserExt2 ext=session.load(UserExt2.class, 2);
-		
-		User2 user=session.load(User2.class, 1);
-		System.out.println(user.getExt());
-		System.out.println(ext.getUser());
+		 */
+		String hql="from User2 u inner join u.ext";
+		Query q=session.createQuery(hql);
+		List<Object[]> list=q.list();
+		for(Object[] o:list){
+			User2 u=(User2) o[0];
+			UserExt2 ext=(UserExt2) o[1];
+			System.out.println("{"+u+ext+"}");
+		}
 		transaction.commit();
 	}
 }

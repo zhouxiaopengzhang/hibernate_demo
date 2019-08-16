@@ -27,7 +27,7 @@ public class User2 {
 	}
 	@Override
 	public String toString() {
-		return "User2 [userId=" + userId + ", userName=" + userName + ", ext=" + ext + "]";
+		return "User2 [userId=" + userId + ", userName=" + userName + "]";
 	}
 
 }
