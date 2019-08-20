@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToOne2">
+	<class name="Stu_Class2" table="class2">
+		<id name="id" column="ID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<!--关键在这里，
+            name:set集合属性的名称
+            key/column：这个是外键名，这个外键字段名不一定要和本类的主键字段名相
+            			同，这点要搞清楚，记住数据库表的关系，谁指向谁就不会混淆
+            one to many/class：一对多，所映射的类名(全限定类名，直接写类名也可
+            			以，hibernate会帮我们自动写好)
+        -->
+		<set name="student2s">
+			<key column="CLASSID"></key>
+			<one-to-many class="Student2"></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

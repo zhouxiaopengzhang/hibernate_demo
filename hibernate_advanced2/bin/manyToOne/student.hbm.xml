@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="manyToOne">
+	<class name="Student" table="student">
+		<id name="id" column="ID" >
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="NAME"></property>
+		<property name="sex" column="SEX"></property>
+		<property name="age" column="AGE"></property>
+		<!-- 在student表中创建班级表的外键 -->
+		<many-to-one name="stuClass" class="Stu_Class">
+			<!-- 学生表中的外键名-->
+			<column name="COURSEID"></column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>
