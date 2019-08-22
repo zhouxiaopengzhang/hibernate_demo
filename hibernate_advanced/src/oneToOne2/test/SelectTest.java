@@ -28,6 +28,7 @@ public class SelectTest {
 		transaction=session.beginTransaction();
 	}
 	/*多表查询*/
+	@SuppressWarnings("unchecked")
 	@Test
 	public void selectTest(){
 		/*这是双向查询：即从ext对象中读取User表中的相关信息

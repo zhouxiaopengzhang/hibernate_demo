@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate mapping DTD 3.0//EN"
+          "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="level2cache">
+	<class name="Car" table="car">
+		<!-- 在二级缓存中缓存当前类，如果核心配置文件中配置了cache-class标签就不需要配置当前的cache标签了 -->
+		<!-- 配置了region属性说明使用在ehcache配置文件中指定<cache>的二级缓存策略，没配置就使用
+			 ehcache配置文件中<defaultCache>的默认二级缓存策略
+		 -->
+		<cache usage="read-write" region="sampleCache1"/> 
+		<id name="id" column="ID">
+			<generator class="native"></generator>
+		</id>
+		<property name="brand" column="BRAND"></property>
+		<property name="model" column="MODEL"></property>
+		<property name="price" column="PRICE"></property>
+	</class>
+</hibernate-mapping>

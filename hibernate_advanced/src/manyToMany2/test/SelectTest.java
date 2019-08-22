@@ -11,6 +11,7 @@ import manyToMany2.Student4;
 
 /*多表查询*/
 public class SelectTest {
+	@SuppressWarnings("unchecked")
 	@Test
 	public void selectTest(){
 		Configuration config=new Configuration();
